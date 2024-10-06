@@ -11,6 +11,7 @@ const loadCategory = async () => {
     newCategory.innerHTML = `
     <div
           class="flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-[312px] h-[105px] border-2 rounded-2xl border=[#0E7A8126] p-6"
+          onclick = ""
         >
           <img
             class="w-14 h-14"
@@ -44,22 +45,34 @@ const loadAllPet = async () => {
               src="${element.image}"
               alt=""
             />
-            <div class="inter font-bold text-[#131313] text-xl mb-2">${element.pet_name}</div>
+            <div class="inter font-bold text-[#131313] text-xl mb-2">${
+              element.pet_name ? element.pet_name : "N/A"
+            }</div>
             <div class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center">
-              <i class="fa-solid fa-window-restore"></i>Breed: ${element.breed}
+              <i class="fa-solid fa-window-restore"></i>Breed: ${
+                element.breed ? element.breed : "N/A"
+              }
             </div>
             <div class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center">
-              <i class="fa-solid fa-calendar-days"></i>Birth: ${element.data_of_birth}
+              <i class="fa-solid fa-calendar-days"></i>Birth: ${
+                element.date_of_birth ? element.date_of_birth : "N/A"
+              }
             </div>
             <div class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center">
-              <i class="fa-solid fa-mars-and-venus"></i>Gender: ${element.gender}
+              <i class="fa-solid fa-mars-and-venus"></i>Gender: ${
+                element.gender ? element.gender : "N/A"
+              }
             </div>
             <div class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center">
-              <i class="fa-solid fa-dollar-sign"></i>Price: ${element.price}
+              <i class="fa-solid fa-dollar-sign"></i>Price: ${
+                element.price ? element.price : "N/A"
+              }
             </div>
             <hr class="border-t-2" />
             <div class="mt-4 flex justify-between">
-              <button class="border-2 py-2 px-4 rounded-xl text-[#131313B3]" onclick="like('${element.image}')">
+              <button class="border-2 py-2 px-4 rounded-xl text-[#131313B3]" onclick="like('${
+                element.image
+              }')">
                 <i class="fa-regular fa-thumbs-up"></i
                 ><i class="fa-solid fa-thumbs-up hidden"></i></button
               ><button
@@ -67,12 +80,81 @@ const loadAllPet = async () => {
               >
                 Adopt</button
               ><button
-                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold text-lg"
+                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold text-lg" onclick="loadModal('${
+                  element.petId
+                }')"
               >
                 Details
               </button>
             </div>
           </div>
+          <dialog id="modal_${element.petId}" class="modal text-left">
+      <div class="modal-box w-11/12 max-w-[700px]">
+        <div class="">
+          <img
+            class="w-full rounded-xl"
+            src="${element.image}"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <p class="inter font-bold text-2xl mb-4 mt-6">${element.pet_name}</p>
+        <div class="grid grid-cols-2 gap-5 lato">
+          <div>
+            <div
+              class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center"
+            >
+              <i class="fa-solid fa-window-restore"></i>Breed: ${
+                element.breed ? element.breed : "N/A"
+              }
+            </div>
+            <div
+              class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center"
+            >
+              <i class="fa-solid fa-mars-and-venus"></i>Gender: ${
+                element.gender ? element.gender : "N/A"
+              }
+            </div>
+            <div
+              class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center"
+            >
+              <i class="fa-solid fa-mars-and-venus"></i>Vaccinated Status: ${
+                element.vaccinated_status ? element.vaccinated_status : "N/A"
+              }
+            </div>
+          </div>
+          <div>
+            <div
+              class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center"
+            >
+              <i class="fa-solid fa-calendar-days"></i>Birth: ${
+                element.date_of_birth ? element.date_of_birth : "N/A"
+              }
+            </div>
+            <div
+              class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center"
+            >
+              <i class="fa-solid fa-dollar-sign"></i>Price: ${
+                element.price ? element.price : "N/A"
+              } $
+            </div>
+          </div>
+        </div>
+        <hr class="border-t-2" />
+        <div class="inter">
+          <p class="font-semibold text-base mt-4">Detail Information</p>
+          <div class="text-[#131313B3] text-left">
+            ${element.pet_details}
+          </div>
+        </div>
+        <div class="modal-action w-full">
+          <form method="dialog" class="w-full inter">
+            <!-- if there is a button, it will close the modal -->
+            <button class="btn w-full">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
     `;
     petContainer.append(newCard);
   });
@@ -87,5 +169,12 @@ const like = (imgUrl) => {
   newImg.innerHTML = `
   <img class="rounded-xl w-full" src="${imgUrl}" />
   `;
-  likedCol.appendChild(newImg); // Append the image to the liked-col element
+  likedCol.appendChild(newImg);
+};
+
+const body = document.querySelector("body");
+console.log(body);
+
+const loadModal = (element) => {
+  document.getElementById(`modal_${element}`).showModal();
 };
