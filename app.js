@@ -10,8 +10,9 @@ const loadCategory = async () => {
     newCategory = document.createElement("div");
     newCategory.innerHTML = `
     <div
-          class="flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-[312px] h-[105px] border-2 rounded-2xl border=[#0E7A8126] p-6"
+          class="flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-[312px] h-[105px] border-2 rounded-2xl border=[#0E7A8126] p-6 category-item"
           onclick = "loadSelectedCategory('${element.category}')"
+          id="${element.category}"
         >
           <img
             class="w-14 h-14"
@@ -28,13 +29,17 @@ const loadCategory = async () => {
 
 loadCategory();
 
+// *********************************************************************************************************************************************************************************
+
+// *********************************************************************************************************************************************************************************
+
 const allPetURL = "https://openapi.programming-hero.com/api/peddy/pets";
 
 const loadAllPet = async () => {
   const petContainer = document.getElementById("displayDiv");
   const res = await fetch(allPetURL);
   const data = await res.json();
-  console.log(data.pets[0]);
+  // console.log(data.pets[0]);
   let newCard;
   data.pets.forEach((element) => {
     newCard = document.createElement("div");
@@ -65,7 +70,7 @@ const loadAllPet = async () => {
             </div>
             <div class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center">
               <i class="fa-solid fa-dollar-sign"></i>Price: ${
-                element.price ? element.price : "N/A"
+                element.price ? `${element.price}$` : "N/A"
               }
             </div>
             <hr class="border-t-2" />
@@ -135,8 +140,8 @@ const loadAllPet = async () => {
               class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center"
             >
               <i class="fa-solid fa-dollar-sign"></i>Price: ${
-                element.price ? element.price : "N/A"
-              } $
+                element.price ? `${element.price}$` : "N/A"
+              }
             </div>
           </div>
         </div>
@@ -167,13 +172,13 @@ const like = (imgUrl) => {
   let newImg = document.createElement("div");
   newImg.classList.add("row-span-1");
   newImg.innerHTML = `
-  <img class="rounded-xl w-full" src="${imgUrl}" />
+  <img class="rounded-xl w-full h-full" src="${imgUrl}" />
   `;
   likedCol.appendChild(newImg);
 };
 
 const body = document.querySelector("body");
-console.log(body);
+// console.log(body);
 
 const loadModal = (element) => {
   document.getElementById(`modal_${element}`).showModal();
@@ -185,7 +190,7 @@ const loadSelectedCategory = async (categoryName) => {
   petContainer.innerHTML = "";
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data.data);
+  // console.log(data.data);
   let newCard;
   data.data.forEach((element) => {
     newCard = document.createElement("div");
@@ -216,7 +221,7 @@ const loadSelectedCategory = async (categoryName) => {
             </div>
             <div class="flex font-normal text-[#131313B3] text-base mb-2 gap-2 items-center">
               <i class="fa-solid fa-dollar-sign"></i>Price: ${
-                element.price ? element.price : "N/A"
+                element.price ? `${element.price}$` : "N/A"
               }
             </div>
             <hr class="border-t-2" />
