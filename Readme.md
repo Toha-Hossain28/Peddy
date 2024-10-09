@@ -43,14 +43,14 @@ The following APIs are available in Peddy:
 ### 1. **Navbar**
 
 - Implement the navbar as per the Figma design.✅
-- Ensure it is responsive across Desktop, Tablet, and Mobile devices.
-- The navbar should collapse into a mobile menu on smaller screens.
+- Ensure it is responsive across Desktop, Tablet, and Mobile devices.✅
+- The navbar should collapse into a mobile menu on smaller screens.✅
 
 ### 2. **Banner Section**
 
 - Design the banner section as per Figma design.✅
 - Include a "View More" button that, when clicked, scrolls down to the “Adopt Your Best Friend” section.✅
-- Ensure the banner is fully responsive.
+- Ensure the banner is fully responsive.✅
 
 ### 3. **Adopt Your Best Friend Section**✅
 
@@ -81,12 +81,12 @@ The following APIs are available in Peddy:
 ### 5. **Footer**
 
 - Implement the footer as per the Figma design.✅
-- Ensure it is responsive.
+- Ensure it is responsive.✅
 
 ### 6. **Responsive Design**
 
-- The entire platform must be responsive and functional on Desktop, Tablet, and Mobile devices.
-- Use Tailwind CSS breakpoints for responsiveness.
+- The entire platform must be responsive and functional on Desktop, Tablet, and Mobile devices.✅
+- Use Tailwind CSS breakpoints for responsiveness.✅
 
 ## Challenges
 
@@ -104,7 +104,7 @@ The following APIs are available in Peddy:
 
 ### 4. **Handle Null or Undefined Values**✅
 
-- If any values from the API (e.g., pet breed, birth date) are null or undefined, display a placeholder or relevant message instead of leaving it blank.
+- If any values from the API (e.g., pet breed, birth date) are null or undefined, display a placeholder or relevant message instead of leaving it blank.✅
 
 ## 5. A Beautiful README.md File
 

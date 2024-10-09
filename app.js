@@ -10,7 +10,7 @@ const loadCategory = async () => {
     newCategory = document.createElement("div");
     newCategory.innerHTML = `
     <div
-          class="flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-[312px] h-[105px] border-2 rounded-2xl border=[#0E7A8126] p-6 category-item"
+          class="flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-auto  max-h-[105px] border-2 rounded-2xl border=[#0E7A8126] p-6 category-item"
           onclick = "loadSelectedCategory('${element.category}')"
           id="${element.category}"
         >
@@ -95,13 +95,13 @@ const loadAllPet = async () => {
                 <i class="fa-regular fa-thumbs-up"></i
                 ><i class="fa-solid fa-thumbs-up hidden"></i></button
               ><button
-                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold text-lg adopt"
+                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold lg:text-lg text-xs adopt"
                 
                 
               >
                 Adopt</button
               ><button
-                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold text-lg" onclick="loadModal('${
+                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold lg:text-lg text-xs" onclick="loadModal('${
                   element.petId
                 }')"
               >

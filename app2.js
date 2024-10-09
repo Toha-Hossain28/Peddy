@@ -6,10 +6,10 @@ setTimeout(() => {
     categoryButton[i].addEventListener("click", () => {
       for (let j = 0; j < categoryButton.length; j++) {
         categoryButton[j].classList =
-          "flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-[312px] h-[105px] border-2 rounded-2xl border=[#0E7A8126] p-6 category-item";
+          "flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-auto h-[105px] border-2 rounded-2xl border=[#0E7A8126] p-6 category-item";
       }
       categoryButton[i].classList =
-        "flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-[312px] h-[105px] border-2 rounded-full border=[#0E7A8126] p-6 category-item bg-[#0E7A811A]";
+        "flex justify-center items-center inter font-bold text-2xl text-[#131313] gap-4 w-auto h-[105px] border-2 rounded-full border=[#0E7A8126] p-6 category-item bg-[#0E7A811A]";
     });
   }
 }, 2000);

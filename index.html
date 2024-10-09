@@ -42,40 +42,60 @@
     </style>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="max-w-[1600px] mx-auto pt-14">
-    <header class="px-36 mb-24">
+  <body class="max-w-[1600px] mx-auto lg:pt-14 mt-8">
+    <header class="lg:px-36 px-5 mb-24">
       <nav class="flex justify-between items-center lato mb-14">
         <div class="flex gap-5 items-center">
           <img class="h-6 w-7" src="./images/logo.webp" alt="logo" />
           <p class="text-[#131313] font-black text-4xl">Peddy</p>
         </div>
-        <div
-          class="flex gap-8 text-[#131313] font-normal text-base relative right-14"
-        >
-          <p>Home</p>
-          <p>Shop</p>
-          <p>Contact</p>
+        <div class="hidden lg:block">
+          <div
+            class="flex gap-8 text-[#131313] font-normal text-base relative right-14"
+          >
+            <p>Home</p>
+            <p>Shop</p>
+            <p>Contact</p>
+          </div>
         </div>
-        <div class="border-[1px] rounded-full py-3 px-4">
-          <i class="fa-regular fa-user"></i>
+
+        <div class="flex gap-4">
+          <div class="border-[1px] rounded-full py-3 px-4 text-lg">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="dropdown dropdown-end lg:hidden block">
+            <div tabindex="0" role="button" class="btn m-1">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            >
+              <li><a>Home</a></li>
+              <li><a>Shop</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
         </div>
       </nav>
       <!-- banner -->
       <section class="flex flex-col items-center lato text-center">
-        <p class="text-[#13131399] text-2xl font-bold mb-8">
+        <p class="text-[#13131399] md:text-2xl text-xl font-bold mb-8">
           Bringing Families Together 🔥
         </p>
-        <h1 class="text-[#131313] font-black text-7xl mb-6">
+        <h1
+          class="text-[#131313] font-black lg:text-7xl md:text-6xl text-4xl mb-6"
+        >
           Your Path to Adoption <br />
           Starts Here
         </h1>
-        <p class="text-[#131313] font-normal text-base mb-8">
+        <p class="text-[#131313] font-normal md:text-base text-xs md:px-4 mb-8">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking <br />at its layout. The point
           of using Lorem Ipsum is that it has a.
         </p>
         <button
-          class="text-white font-bold text-xl bg-[#0E7A81] rounded-xl py-4 px-8 mb-12"
+          class="text-white font-bold md:text-xl text-lg bg-[#0E7A81] rounded-xl md:py-4 py-3 md:px-8 px-5 mb-12"
           onclick="location.href='#main'"
         >
           View More
@@ -83,7 +103,7 @@
         <img src="./images/pet.webp" alt="" />
       </section>
     </header>
-    <main id="main" class="lato flex flex-col text-center">
+    <main id="main" class="lato flex flex-col text-center lg:px-36 px-5">
       <h2 class="text-[#131313] font-black text-[40px] mb-6">
         Adopt Your Best Friend
       </h2>
@@ -93,25 +113,30 @@
         page when looking at its layout. The point of using Lorem Ipsum is that
         it has a.
       </p>
-      <div id="category" class="flex gap-x-6 justify-center mb-8"></div>
-      <div class="flex gap-6 items-center justify-between px-36 lato mb-8">
-        <p class="text-[#131313] font-black text-2xl">Best Deal For you</p>
+      <div
+        id="category"
+        class="lg:grid-cols-4 gap-x-6 justify-center mb-8 grid grid-cols-2 gap-y-6 box-border"
+      ></div>
+      <div class="flex gap-6 items-center justify-between lato mb-8">
+        <p class="text-[#131313] font-black md:text-2xl text-lg">
+          Best Deal For you
+        </p>
         <button
-          class="font-bold text-xl text-white bg-[#0E7A81] rounded-xl px-8 py-4"
+          class="font-bold lg:text-xl text-lg text-white bg-[#0E7A81] rounded-xl px-8 py-4"
         >
           Sort by Price
         </button>
       </div>
 
-      <div class="grid grid-cols-12 gap-6 px-36 mb-20 relative">
-        <span class="loader absolute top-32 w-4/5 px-36"></span>
+      <div class="grid grid-cols-12 lg:gap-6 gap-4 mb-20 relative">
+        <span class="loader absolute top-32 w-4/5"></span>
         <div
           id="displayDiv"
-          class="col-span-9 grid grid-cols-3 gap-6 lato"
+          class="col-span-9 grid lg:grid-cols-3 md:grid-cols-2 gap-6 lato"
         ></div>
         <div
           id="liked-col"
-          class="border-2 col-span-3 rounded-xl grid grid-cols-2 p-4 gap-4 min-h-64"
+          class="border-2 col-span-3 rounded-xl grid lg:grid-cols-2 grid-cols-1 p-4 gap-4 min-h-64"
           style="grid-template-rows: repeat(auto-fill, minmax(100px, auto))"
         ></div>
       </div>
@@ -132,7 +157,9 @@
       </div>
     </dialog>
 
-    <footer class="px-36 flex justify-between lato bg-black py-[100px]">
+    <footer
+      class="lg:px-36 px-5 lg:flex lg:justify-between grid grid-cols-1 md:grid-cols-2 gap-x-28 lato bg-black py-[100px]"
+    >
       <div class="text-[#FFFFFFE6] font-normal text-base gap-y-2 flex flex-col">
         <div
           class="flex font-black text-4xl text-white items-center gap-4 mb-6"
@@ -147,7 +174,7 @@
         <p>Phone: +31 85 964 47 25</p>
         <p>Email: info@yourdomain.com</p>
         <p>Openings hours: 9.00 AM - 5.00 PM</p>
-        <div class="text-white flex gap-4 text-3xl mt-4">
+        <div class="text-white flex gap-4 text-3xl mt-4 mb-20">
           <i class="fa-brands fa-facebook"></i>
           <i class="fa-brands fa-x-twitter"></i>
           <i class="fa-brands fa-youtube"></i>
@@ -165,7 +192,7 @@
         <p>Foundation</p>
         <p>Contact</p>
       </div>
-      <div class="flex flex-col">
+      <div class="flex flex-col col-span-2">
         <p class="text-[#FFFFFFE6] font-bold text-lg inter mb-8">
           Drop a Message
         </p>
