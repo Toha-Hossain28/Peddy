@@ -103,10 +103,12 @@
         </button>
       </div>
 
-      <div class="grid grid-cols-12 gap-6 px-36 mb-20">
-        <div id="displayDiv" class="col-span-9 grid grid-cols-3 gap-6 lato">
-          <span class="loader hidden w-full"></span>
-        </div>
+      <div class="grid grid-cols-12 gap-6 px-36 mb-20 relative">
+        <span class="loader absolute top-32 w-4/5 px-36"></span>
+        <div
+          id="displayDiv"
+          class="col-span-9 grid grid-cols-3 gap-6 lato"
+        ></div>
         <div
           id="liked-col"
           class="border-2 col-span-3 rounded-xl grid grid-cols-2 p-4 gap-4 min-h-64"
@@ -117,6 +119,18 @@
     <!-- ***************************************modal -->
     <!-- You can open the modal using ID.showModal() method -->
     <!-- <button class="btn" onclick="my_modal_4.showModal()">open modal</button> -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+    <dialog id="my_modal_1" class="modal text-center">
+      <div class="modal-box">
+        <h3 class="font-black text-4xl mb-5">Congratulations!</h3>
+        <p class="font-medium text-lg text-gray-500 mb-4">
+          We wish you a bright future with your new friend
+        </p>
+        <p id="countDown" class="text-7xl text-[#0E7A81]">3</p>
+        <div class="modal-action"></div>
+      </div>
+    </dialog>
 
     <footer class="px-36 flex justify-between lato bg-black py-[100px]">
       <div class="text-[#FFFFFFE6] font-normal text-base gap-y-2 flex flex-col">

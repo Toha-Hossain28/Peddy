@@ -31,12 +31,26 @@ loadCategory();
 
 // *********************************************************************************************************************************************************************************
 
+const petContainer = document.getElementById("displayDiv");
+
+const loader = () => {
+  // Show the loader by setting the display to 'block'
+  document.querySelector(".loader").style.display = "block";
+  petContainer.style.visibility = "hidden";
+
+  // Hide the loader after 2 seconds
+  setTimeout(() => {
+    document.querySelector(".loader").style.display = "none";
+    petContainer.style.visibility = "visible";
+  }, 2000);
+};
+
 // *********************************************************************************************************************************************************************************
 
 const allPetURL = "https://openapi.programming-hero.com/api/peddy/pets";
 
 const loadAllPet = async () => {
-  const petContainer = document.getElementById("displayDiv");
+  loader();
   const res = await fetch(allPetURL);
   const data = await res.json();
   // console.log(data.pets[0]);
@@ -81,7 +95,9 @@ const loadAllPet = async () => {
                 <i class="fa-regular fa-thumbs-up"></i
                 ><i class="fa-solid fa-thumbs-up hidden"></i></button
               ><button
-                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold text-lg"
+                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold text-lg adopt"
+                
+                
               >
                 Adopt</button
               ><button
@@ -163,6 +179,14 @@ const loadAllPet = async () => {
     `;
     petContainer.append(newCard);
   });
+  let adoptBtn = document.querySelectorAll(".adopt");
+  console.log(adoptBtn.length);
+  for (let i = 0; i < adoptBtn.length; i++) {
+    adoptBtn[i].addEventListener("click", () => {
+      openModalAndStartCountdown();
+      adoptBtn[i].innerText = "Adopted";
+    });
+  }
 };
 
 loadAllPet();
@@ -185,16 +209,18 @@ const loadModal = (element) => {
 };
 
 const loadSelectedCategory = async (categoryName) => {
+  loader();
   const url = `https://openapi.programming-hero.com/api/peddy/category/${categoryName}`;
   const petContainer = document.getElementById("displayDiv");
   petContainer.innerHTML = "";
   const res = await fetch(url);
   const data = await res.json();
-  // console.log(data.data);
+  // console.log(data.data.length);
   let newCard;
-  data.data.forEach((element) => {
-    newCard = document.createElement("div");
-    newCard.innerHTML = `
+  if (data.data.length > 0) {
+    data.data.forEach((element) => {
+      newCard = document.createElement("div");
+      newCard.innerHTML = `
     <div class="border-2 p-5 rounded-xl text-left">
             <img
               class="rounded-xl mb-6 w-[266px] h-[178px]"
@@ -232,7 +258,7 @@ const loadSelectedCategory = async (categoryName) => {
                 <i class="fa-regular fa-thumbs-up"></i
                 ><i class="fa-solid fa-thumbs-up hidden"></i></button
               ><button
-                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold text-lg"
+                class="border-2 py-2 px-4 rounded-xl text-[#0E7A81] font-bold text-lg adopt"
               >
                 Adopt</button
               ><button
@@ -312,6 +338,34 @@ const loadSelectedCategory = async (categoryName) => {
       </div>
     </dialog>
     `;
+      petContainer.append(newCard);
+    });
+  } else {
+    newCard = document.createElement("div");
+    newCard.classList.add("col-span-9");
+    newCard.innerHTML = `
+    <div class="rounded-3xl bg-[#13131308] py-[100px] flex flex-col justify-center items-center">
+      <div class="mb-7">
+        <img class="w-[155px] h-[145px]"  src="./images/error.webp"/>
+      </div>
+      <h3 class="inter text-4xl font-bold mb-4">
+        No Information Available
+      </h3>
+      <p class="lato font-normal text-base text-[#131313B3] w-3/4">
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+        its layout. The point of using Lorem Ipsum is that it has a.
+      </p>
+    </div>
+    `;
     petContainer.append(newCard);
-  });
+  }
+  // Attach the function to your existing button
+  adoptBtn = document.querySelectorAll(".adopt");
+  // console.log(adoptBtn.length);
+  for (let i = 0; i < adoptBtn.length; i++) {
+    adoptBtn[i].addEventListener("click", () => {
+      openModalAndStartCountdown();
+      adoptBtn[i].innerText = "Adopted";
+    });
+  }
 };
