@@ -49,11 +49,20 @@ const loader = () => {
 
 const allPetURL = "https://openapi.programming-hero.com/api/peddy/pets";
 
-const loadAllPet = async () => {
+const loadAllPet = async (sorted = false) => {
   loader();
   const res = await fetch(allPetURL);
   const data = await res.json();
-  // console.log(data.pets[0]);
+  // console.log(data.pets);
+  if (sorted === true) {
+    data.pets.sort((a, b) => {
+      if (a.price === null || a.price === undefined) return 1;
+      if (b.price === null || b.price === undefined) return -1;
+      return b.price - a.price;
+    });
+
+    // console.log(pets);
+  }
   let newCard;
   data.pets.forEach((element) => {
     newCard = document.createElement("div");
@@ -112,7 +121,7 @@ const loadAllPet = async () => {
     petContainer.append(newCard);
   });
   let adoptBtn = document.querySelectorAll(".adopt");
-  console.log(adoptBtn.length);
+  // console.log(adoptBtn.length);
   for (let i = 0; i < adoptBtn.length; i++) {
     adoptBtn[i].addEventListener("click", () => {
       openModalAndStartCountdown();
@@ -122,6 +131,12 @@ const loadAllPet = async () => {
 };
 
 loadAllPet();
+
+const sort_btn = document.querySelector("#sort_btn");
+sort_btn.addEventListener("click", () => {
+  petContainer.innerHTML = "";
+  loadAllPet(true);
+});
 
 const likedCol = document.getElementById("liked-col");
 const like = (imgUrl) => {

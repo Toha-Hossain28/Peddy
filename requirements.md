@@ -94,7 +94,7 @@ The following APIs are available in Peddy:
 
 - Display a loading spinner for at least 2 seconds when fetching data from the API.✅
 
-### 2. **Sort by Price**
+### 2. **Sort by Price**✅
 
 - Implement sorting functionality for pets. When the "Sort by Price" button is clicked, sort pets in descending order based on price . sorting on active category is recommended but if you can sort all the data you will get full mark for this requirement.
 
