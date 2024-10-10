@@ -1,7 +1,3 @@
-Here is the README.md file structure for your project:
-
----
-
 # Peddy
 
 ### A Pet Adoption Web Application
