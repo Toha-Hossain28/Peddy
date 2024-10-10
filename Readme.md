@@ -18,7 +18,7 @@ The following APIs are available in Peddy:
    - **Endpoint:** [https://openapi.programming-hero.com/api/peddy/pets](https://openapi.programming-hero.com/api/peddy/pets)
    - **Description:** Retrieves a list of all available pets for adoption. The data includes details like pet name, type, age, and adoption status.
 
-2. **Fetch Pet Details by ID**
+2. **Fetch Pet Details by ID**✅
 
    - **Endpoint:**`https://openapi.programming-hero.com/api/peddy/pet/pet-id`
 
