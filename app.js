@@ -319,8 +319,7 @@ const loadSelectedCategory = async (categoryName) => {
         No Information Available
       </h3>
       <p class="lato font-normal text-base text-[#131313B3] w-3/4">
-        It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
-        its layout. The point of using Lorem Ipsum is that it has a.
+        please check again later.
       </p>
     </div>
     `;
